@@ -1,0 +1,20 @@
+// Copyright (C) 2024 Xiaomi Corporation
+
+filegroup {
+    name: "cpc_loader_jni",
+    srcs: [
+        "android_os_CpcLoader.cpp",
+    ],
+}
+
+filegroup {
+    name: "cpc_binder_jni",
+    srcs: [
+        "android_os_CpcServiceManager.cpp",
+    ]
+}
+
+filegroup {
+    name: "cpc_service_manager_java",
+    srcs: ["CpcServiceManager.java"],
+}

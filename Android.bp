@@ -1,0 +1,60 @@
+// Copyright (C) 2024 Xiaomi Corporation
+
+cc_library {
+    name: "libcpc_extension_jni.xiaomi",
+
+    srcs: [
+        ":cpc_binder_jni",
+        ":cpc_loader_jni",
+    ],
+
+    shared_libs: [
+        "libbase",
+        "liblog",
+        "libcutils",
+        "libutils",
+        "libbinder",
+        "libandroid",
+        "libandroid_runtime_lazy",
+        "libnativehelper",
+    ],
+
+    include_dirs: [
+        "frameworks/native/libs/binder/include",
+        "frameworks/base/core/jni",
+    ],
+
+    static_libs: [
+        "libcpcbinder",
+    ],
+
+    header_libs: [
+        "libcpcbinder_headers",
+    ],
+
+    export_header_lib_headers: [
+        "libcpcbinder_headers",
+    ],
+
+    cflags: [
+        "-DCONFIG_KVDB_SERVER_CPUNAME=\"ap\"",
+        "-fvisibility=hidden",
+    ],
+}
+
+java_sdk_library {
+    name: "cpc-extension",
+    srcs: [
+        ":cpc_service_manager_java",
+    ],
+    api_packages: ["android.os"],
+    public: {
+        enabled: true,
+    },
+    system: {
+        enabled: true,
+    },
+    required: ["libcpc_extension_jni.xiaomi"],
+    unsafe_ignore_missing_latest_api: true,
+}
+
