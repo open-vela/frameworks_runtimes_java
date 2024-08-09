@@ -1,0 +1,21 @@
+// Copyright (C) 2024 Xiaomi Corporation
+
+java_binary {
+    name: "CpcSocketTest",
+    wrapper: "CpcSocketTest",
+    srcs: [
+        "CpcSocketTest.java",
+    ],
+
+    static_libs: [
+        "android-common",
+        "androidx.test.rules",
+    ],
+
+    libs: [
+        "cpc-extension",
+        "android.test.runner",
+    ],
+
+    platform_apis: true,
+}
