@@ -19,6 +19,7 @@
 
 extern int register_android_os_CpcProperties(JNIEnv* env);
 extern int register_android_os_CpcServiceManager(JNIEnv* env);
+extern int register_android_net_RpmsgSocket(JNIEnv* env);
 
 jint JNI_OnLoad(JavaVM* jvm, void*)
 {
@@ -32,6 +33,10 @@ jint JNI_OnLoad(JavaVM* jvm, void*)
     }
 
     if (register_android_os_CpcServiceManager(env) < 0) {
+        return JNI_ERR;
+    }
+
+    if (register_android_net_RpmsgSocket(env) < 0) {
         return JNI_ERR;
     }
 

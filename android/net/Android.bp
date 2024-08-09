@@ -1,0 +1,18 @@
+// Copyright (C) 2024 Xiaomi Corporation
+
+filegroup {
+    name: "cpc_socket_jni",
+    srcs: [
+        "android_net_RpmsgSocket.cpp",
+    ],
+}
+
+filegroup {
+    name: "cpc_socket_java",
+    srcs: [
+        "RpmsgSocket.java",
+        "RpmsgSocketAddress.java",
+        "RpmsgSocketImpl.java",
+        "RpmsgServerSocket.java",
+    ],
+}
