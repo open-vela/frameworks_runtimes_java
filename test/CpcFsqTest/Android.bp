@@ -1,0 +1,49 @@
+// Copyright (C) 2024 Xiaomi Corporation
+
+cc_library {
+    name: "libcpcfsq_jni",
+
+    aidl: {
+        include_dirs: [
+            "vendor/vela/frameworks/binder/libs/binder/include",
+        ],
+    },
+
+    srcs: [
+        ":cpcfsq_aidl",
+        "CpcFsqJni.cpp",
+    ],
+
+    shared_libs: [
+        "libbase",
+        "liblog",
+        "libcutils",
+        "libutils",
+        "libbinder",
+        "libandroid",
+        "libandroid_runtime_lazy",
+        "libnativehelper",
+    ],
+
+    header_libs: ["libfsq_headers"],
+
+    include_dirs: [
+        "frameworks/base/core/jni",
+    ],
+
+    static_libs: [
+        "libcpcbinder",
+    ],
+}
+
+java_binary {
+    name: "CpcFsqTest",
+    wrapper: "CpcFsqTest",
+    srcs: [
+        "android/os/CpcFsqApp.java"
+    ],
+
+    libs : ["cpc-extension"],
+
+    platform_apis: true,
+}

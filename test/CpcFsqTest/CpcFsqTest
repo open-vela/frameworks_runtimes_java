@@ -1,0 +1,4 @@
+#!/system/bin/sh
+export LD_PRELOAD=libcpc_extension_jni.xiaomi.so:libcpcfsq_jni.so
+export CLASSPATH=/data/local/tmp/CpcFsqTest.jar:/system/framework/cpc-extension.jar
+exec app_process /system/bin android.os.CpcFsqApp "$@"
