@@ -6,6 +6,7 @@ cc_library {
     srcs: [
         ":cpc_binder_jni",
         ":cpc_loader_jni",
+        ":cpc_property_jni",
     ],
 
     shared_libs: [
@@ -26,6 +27,7 @@ cc_library {
 
     static_libs: [
         "libcpcbinder",
+        "libkvdb",
     ],
 
     header_libs: [
@@ -35,16 +37,12 @@ cc_library {
     export_header_lib_headers: [
         "libcpcbinder_headers",
     ],
-
-    cflags: [
-        "-DCONFIG_KVDB_SERVER_CPUNAME=\"ap\"",
-        "-fvisibility=hidden",
-    ],
 }
 
 java_sdk_library {
     name: "cpc-extension",
     srcs: [
+        ":cpc_property_java",
         ":cpc_service_manager_java",
     ],
     api_packages: ["android.os"],

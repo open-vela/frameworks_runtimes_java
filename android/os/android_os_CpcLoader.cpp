@@ -17,12 +17,17 @@
 #include <jni.h>
 #include <nativehelper/JNIHelp.h>
 
+extern int register_android_os_CpcProperties(JNIEnv* env);
 extern int register_android_os_CpcServiceManager(JNIEnv* env);
 
 jint JNI_OnLoad(JavaVM* jvm, void*)
 {
     JNIEnv* env = nullptr;
     if (jvm->GetEnv(reinterpret_cast<void**>(&env), JNI_VERSION_1_6)) {
+        return JNI_ERR;
+    }
+
+    if (register_android_os_CpcProperties(env) < 0) {
         return JNI_ERR;
     }
 

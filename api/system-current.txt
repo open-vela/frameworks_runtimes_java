@@ -1,6 +1,19 @@
 // Signature format: 2.0
 package android.os {
 
+  public class CpcProperties {
+    method public static void addChangeCallback(@NonNull Runnable);
+    method public static void addPropChangeCallback(@NonNull String, @NonNull Runnable);
+    method @NonNull public static String get(@NonNull String);
+    method @NonNull public static String get(@NonNull String, @Nullable String);
+    method public static boolean getBoolean(@NonNull String, boolean);
+    method public static int getInt(@NonNull String, int);
+    method public static long getLong(@NonNull String, long);
+    method public static void removeChangeCallback(@NonNull Runnable);
+    method public static void removePropChangeCallback(@NonNull String);
+    method public static void set(@NonNull String, @Nullable String);
+  }
+
   public class CpcServiceManager {
     method public static void addService(String, android.os.IBinder);
     method public static void addService(String, android.os.IBinder, boolean);
