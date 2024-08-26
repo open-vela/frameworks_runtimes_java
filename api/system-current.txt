@@ -10,7 +10,7 @@ package android.os {
     method public static int getInt(@NonNull String, int);
     method public static long getLong(@NonNull String, long);
     method public static void removeChangeCallback(@NonNull Runnable);
-    method public static void removePropChangeCallback(@NonNull String);
+    method public static void removePropChangeCallback(@NonNull String, @NonNull Runnable);
     method public static void set(@NonNull String, @Nullable String);
   }
 
