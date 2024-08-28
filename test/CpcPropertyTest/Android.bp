@@ -12,7 +12,6 @@ java_binary {
         "androidx.test.rules",
         "androidx.test.ext.junit",
         "frameworks-core-util-lib",
-        "ravenwood-junit",
     ],
 
     libs: ["cpc-extension"],

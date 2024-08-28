@@ -18,7 +18,9 @@
 #include <nativehelper/JNIHelp.h>
 
 extern int register_android_os_CpcProperties(JNIEnv* env);
+#ifndef NO_CPC_BINDER
 extern int register_android_os_CpcServiceManager(JNIEnv* env);
+#endif
 extern int register_android_net_RpmsgSocket(JNIEnv* env);
 
 jint JNI_OnLoad(JavaVM* jvm, void*)
@@ -32,9 +34,11 @@ jint JNI_OnLoad(JavaVM* jvm, void*)
         return JNI_ERR;
     }
 
+#ifndef NO_CPC_BINDER
     if (register_android_os_CpcServiceManager(env) < 0) {
         return JNI_ERR;
     }
+#endif
 
     if (register_android_net_RpmsgSocket(env) < 0) {
         return JNI_ERR;

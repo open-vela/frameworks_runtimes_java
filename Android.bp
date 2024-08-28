@@ -1,10 +1,22 @@
 // Copyright (C) 2024 Xiaomi Corporation
 
-cc_library {
+bootstrap_go_package {
+    name: "soong-cpcextension",
+    pkgPath: "android/soong/cpcextension",
+    deps: [
+        "soong-android",
+        "soong-cc",
+    ],
+    srcs: [
+          "cpcextension.go",
+    ],
+    pluginFor: ["soong_build"],
+}
+
+cpc_library_shared {
     name: "libcpc_extension_jni.xiaomi",
 
     srcs: [
-        ":cpc_binder_jni",
         ":cpc_loader_jni",
         ":cpc_property_jni",
         ":cpc_socket_jni",
@@ -27,7 +39,6 @@ cc_library {
     ],
 
     static_libs: [
-        "libcpcbinder",
         "libkvdb",
     ],
 

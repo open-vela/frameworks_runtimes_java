@@ -1,11 +1,31 @@
 // Copyright (C) 2024 Xiaomi Corporation
 
+bootstrap_go_package {
+    name: "soong-cpctest",
+    pkgPath: "android/soong/cpctest",
+    deps: [
+        "soong-android",
+        "soong-java",
+    ],
+    srcs: [
+          "cpctest.go",
+    ],
+    pluginFor: ["soong_build"],
+}
+
+cpctest_defaults {
+    name: "cpc_test_defaults",
+    srcs: [
+        "**/*.java",
+        ":cpctest_aidl"
+    ],
+}
+
 java_binary {
     name: "cpctest",
     wrapper: "cpctest",
-    srcs: ["**/*.java",
-           ":cpctest_aidl"
-    ],
+
+    defaults: ["cpc_test_defaults"],
 
     libs : ["cpc-extension"],
 
