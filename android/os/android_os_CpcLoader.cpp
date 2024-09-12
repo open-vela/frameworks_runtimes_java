@@ -18,6 +18,7 @@
 #include <nativehelper/JNIHelp.h>
 
 extern int register_android_os_CpcProperties(JNIEnv* env);
+extern int register_android_os_CpcRemote(JNIEnv* env);
 #ifndef NO_CPC_BINDER
 extern int register_android_os_CpcServiceManager(JNIEnv* env);
 #endif
@@ -31,6 +32,10 @@ jint JNI_OnLoad(JavaVM* jvm, void*)
     }
 
     if (register_android_os_CpcProperties(env) < 0) {
+        return JNI_ERR;
+    }
+
+    if (register_android_os_CpcRemote(env) < 0) {
         return JNI_ERR;
     }
 

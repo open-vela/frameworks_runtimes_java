@@ -5,6 +5,9 @@ package android.os {
     field public static final int PROP_NAME_MAX = 2147483647; // 0x7fffffff
   }
 
+  public class CpcRemote {
+  }
+
   public class CpcServiceManager {
     ctor public CpcServiceManager();
   }

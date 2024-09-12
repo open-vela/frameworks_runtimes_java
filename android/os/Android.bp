@@ -8,6 +8,20 @@ filegroup {
 }
 
 filegroup {
+    name: "cpc_remote_jni",
+    srcs: [
+        "android_os_CpcRemote.cpp",
+    ],
+}
+
+filegroup {
+    name: "cpc_remote_java",
+    srcs: [
+        "CpcRemote.java",
+    ],
+}
+
+filegroup {
     name: "cpc_property_jni",
     srcs: [
         "android_os_CpcProperties.cpp",

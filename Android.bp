@@ -19,6 +19,7 @@ cpc_library_shared {
     srcs: [
         ":cpc_loader_jni",
         ":cpc_property_jni",
+        ":cpc_remote_jni",
         ":cpc_socket_jni",
     ],
 
@@ -55,6 +56,7 @@ java_sdk_library {
     name: "cpc-extension",
     srcs: [
         ":cpc_property_java",
+        ":cpc_remote_java",
         ":cpc_service_manager_java",
         ":cpc_socket_java",
     ],

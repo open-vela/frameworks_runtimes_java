@@ -14,6 +14,11 @@ package android.os {
     method public static void set(@NonNull String, @Nullable String);
   }
 
+  public class CpcRemote {
+    method @NonNull public static boolean checkRemote(@NonNull String);
+    method @NonNull public static String[] listRemote();
+  }
+
   public class CpcServiceManager {
     method public static void addService(String, android.os.IBinder);
     method public static void addService(String, android.os.IBinder, boolean);
