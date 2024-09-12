@@ -1,0 +1,13 @@
+// Copyright (C) 2024 Xiaomi Corporation
+
+java_binary {
+    name: "CpcRemoteTest",
+    wrapper: "CpcRemoteTest",
+    srcs: [
+        "CpcRemoteTest.java",
+    ],
+
+    libs: ["cpc-extension"],
+
+    platform_apis: true,
+}
