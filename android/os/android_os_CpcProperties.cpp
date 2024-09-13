@@ -138,7 +138,7 @@ static void* thread_monitor(void* p)
         } else {
             for (int i = 0; i < count; i++) {
                 prop_param_t* param = (prop_param_t*)(events[i].data.ptr);
-                property_monitor_read(param->fd, nullptr, nullptr);
+                property_monitor_read(param->fd, nullptr, nullptr, 0);
                 param->cb(param->key.c_str(), param->cookie);
             }
         }
